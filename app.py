@@ -10,13 +10,14 @@ app = Flask(__name__)
 
 @app.route('/',)
 def calculate_duration():
-    year = str(relativedelta(datetime.now(),datetime(2020,3,19)).years)
-    mon = str(relativedelta(datetime.now(),datetime(2020,3,19)).months)
-    day = str(relativedelta(datetime.now(),datetime(2020,3,19)).days)
-    hour = str(relativedelta(datetime.now(),datetime(2020,3,19)).hours)
-    minute = str(relativedelta(datetime.now(),datetime(2020,3,19)).minutes)
-    sec = str(relativedelta(datetime.now(),datetime(2020,3,19)).seconds)
-    micro = str(relativedelta(datetime.now(),datetime(2020,3,19)).microseconds)
+    duration = relativedelta(datetime.now(),datetime(2020,3,19))
+    year = str(duration.years)
+    mon = str(duration.months)
+    day = str(duration.days)
+    hour = str(duration.hours)
+    minute = str(duration.minutes)
+    sec = str(duration.seconds)
+    micro = str(duration.microseconds)
     res = {
         "years":year,
         "months":mon,
