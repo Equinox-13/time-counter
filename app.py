@@ -9,6 +9,10 @@ app = Flask(__name__)
 
 
 @app.route('/',)
+def home():
+    return render_template('home.html')
+
+@app.route('/getduration',)
 def calculate_duration():
     duration = relativedelta(datetime.now(),datetime(2020,3,19))
     year = str(duration.years)
@@ -27,7 +31,7 @@ def calculate_duration():
         "seconds":sec,
         "microseconds":micro,
     }
-    return render_template('home.html', data=res)
+    return render_template('duration.html', data=res)
 
 
 if __name__ == '__main__':
